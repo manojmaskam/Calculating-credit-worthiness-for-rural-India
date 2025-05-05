@@ -1,0 +1,221 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --success-color: #2ecc71;
+    --warning-color: #e74c3c;
+    --background-color: #f8f9fa;
+    --loading-color: #3498db;
+    --error-color: #e74c3c;
+    --success-bg: linear-gradient(135deg, #2ecc71, #27ae60);
+    --error-bg: linear-gradient(135deg, #e74c3c, #c0392b);
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    --shadow-primary: 0 10px 30px rgba(44, 62, 80, 0.1);
+    --shadow-secondary: 0 4px 15px rgba(52, 152, 219, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.prediction-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-primary);
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 30px;
+    transition: transform 0.3s ease;
+}
+
+.prediction-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 20px 20px 0 0;
+    padding: 2rem;
+    text-align: center;
+    margin: -30px -30px 30px -30px;
+}
+
+.card-header h3 {
+    font-weight: 600;
+    margin-bottom: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control, .form-select {
+    border-radius: 10px;
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: var(--shadow-secondary);
+    outline: none;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.submit-btn {
+    background: var(--gradient-primary);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-secondary);
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+}
+
+.section-title {
+    margin-bottom: 2rem;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: var(--shadow-primary);
+}
+
+.section-title h4 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.section-title i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: var(--shadow-primary);
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--loading-color);
+    animation: spin 1s ease-in-out infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.result-box {
+    display: none;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: var(--shadow-primary);
+    animation: fadeIn 0.5s ease;
+}
+
+.success {
+    background: var(--success-bg);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    animation: slideIn 0.5s ease;
+}
+
+.success h2 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.error {
+    background: var(--error-bg);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    animation: slideIn 0.5s ease;
+}
+
+.error h4 {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.retry-btn {
+    background: white;
+    color: var(--error-color);
+    border: 2px solid white;
+    border-radius: 25px;
+    padding: 10px 25px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { 
+        transform: translateY(20px); 
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}

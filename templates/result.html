@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .prediction-card {
+            background: white;
+            border-radius: 20px;
+            margin: 50px auto;
+            max-width: 900px;
+            padding: 30px;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            border-radius: 20px 20px 0 0;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .prediction-amount {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .prediction-amount h2 {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .prediction-amount h4 {
+            color: #666;
+        }
+
+        .back-button {
+            margin-top: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="prediction-card">
+                    <div class="card-header">
+                        <h3>Prediction Result</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="prediction-amount">
+                            <h4>Predicted Loan Amount</h4>
+                            <h2>₹ {{ "%.2f"|format(prediction.prediction) }}</h2>
+                            <p class="text-muted">{{ prediction.message }}</p>
+                        </div>
+                        <div class="back-button">
+                            <a href="/" class="btn btn-primary">
+                                <i class="fas fa-arrow-left me-2"></i>Back to Calculator
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
